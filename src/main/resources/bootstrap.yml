@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: transactionhistory-service
+  cloud:
+    config:
+      uri: http://configurationserver:8063
+      fail-fast: true
+
+server:
+  port: 9063
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurikaserver:8061/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
