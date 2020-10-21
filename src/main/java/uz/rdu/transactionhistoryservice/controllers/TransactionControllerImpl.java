@@ -8,6 +8,7 @@ import uz.rdu.transactionhistoryservice.interfaces.TransactionHistoryService;
 import uz.rdu.transactionhistoryservice.models.Request;
 import uz.rdu.transactionhistoryservice.models.Response;
 
+@Controller
 public class TransactionControllerImpl implements TransactionController {
 
     @Autowired

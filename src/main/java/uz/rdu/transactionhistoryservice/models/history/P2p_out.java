@@ -14,5 +14,5 @@ import java.util.Date;
 public class P2p_out implements Serializable {
     private String receiver_card;
     private String amount;
-    private Date p2p_date;
+    private String p2p_date;
 }

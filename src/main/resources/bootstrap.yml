@@ -3,7 +3,7 @@ spring:
     name: transactionhistory-service
   cloud:
     config:
-      uri: http://localhost:8063
+      uri: http://configurationserver:8063
       fail-fast: true
 
 server:

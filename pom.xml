@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>uz.rdu</groupId>
-	<artifactId>transaction-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>transactionhistory-service</artifactId>
+	<version>1.0</version>
 	<name>TransactionHistoryService</name>
 	<description>TransactionHistoryService</description>
 

@@ -1,5 +1,6 @@
 package uz.rdu.transactionhistoryservice.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uz.rdu.transactionhistoryservice.interfaces.RequestProcedures;
@@ -12,11 +13,13 @@ import uz.rdu.transactionhistoryservice.reposiories.ResponseRepositories;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Component
+@Slf4j
 public class ProcedureRequestsImpl implements RequestProcedures {
     private EntityManagerFactory emf;
 
@@ -44,11 +47,11 @@ public class ProcedureRequestsImpl implements RequestProcedures {
         List<Object[]> rows = str.getResultList();
         List<Payment> result = new ArrayList<>(rows.size());
         for (Object[] row : rows) {
-
-            result.add(new Payment((int) row[1],
-                    (String) row[2],
-                    (String) row[3],
-                    (Date) row[4]));
+            log.info("getLast10Payments: Object : {} , {}",row[1], row[2]);
+            result.add(new Payment(((BigDecimal) row[0]).longValue(),
+                    (String) row[1].toString(),
+                    (String) row[2].toString(),
+                    (String) row[3].toString()));
 
         }
         em.clear();
@@ -72,7 +75,7 @@ public class ProcedureRequestsImpl implements RequestProcedures {
 
             result.add(new P2p_in((String) row[1].toString(),
                     (String) row[2].toString(),
-                    (Date) row[3]));
+                    (String) row[3].toString()));
 
         }
         em.clear();
@@ -96,7 +99,7 @@ public class ProcedureRequestsImpl implements RequestProcedures {
 
             result.add(new P2p_out((String) row[1].toString(),
                     (String) row[2],
-                    (Date) row[3]));
+                    (String) row[3]));
 
         }
         em.clear();

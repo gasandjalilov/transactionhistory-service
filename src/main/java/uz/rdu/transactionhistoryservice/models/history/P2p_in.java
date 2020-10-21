@@ -17,5 +17,5 @@ public class P2p_in implements Serializable {
 
     private String amount;
 
-    private Date p2p_date;
+    private String p2p_date;
 }

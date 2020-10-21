@@ -13,15 +13,11 @@ import uz.rdu.transactionhistoryservice.models.history.Payment;
 
 import java.util.List;
 
-@Controller
 public interface TransactionHistoryService {
 
-    @PostMapping(value = "/retrieveLastPayments",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Response> getLast10Payments(@RequestBody Request request);
+    ResponseEntity<Response> getLast10Payments(Request request);
 
-    @PostMapping(value = "/retrieveLastInP2P",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Response> getInP2PFor30Days(@RequestBody Request request);
+    ResponseEntity<Response> getInP2PFor30Days( Request request);
 
-    @PostMapping(value = "/retrieveLastOutP2P",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Response> getOutP2PFor30Days(@RequestBody Request request);
+    ResponseEntity<Response> getOutP2PFor30Days(Request request);
 }
